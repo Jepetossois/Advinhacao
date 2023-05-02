@@ -1,2 +1,0 @@
-# Advinhacao
-jogo adivinhação
