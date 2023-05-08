@@ -6,43 +6,31 @@ public class Aplicacao {
 
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
+		JogoAdivinhacao adivinhacao = new JogoAdivinhacao();
+		JogoForca forca = new JogoForca();
+		boolean validacao = false;
+		int jogo;
+		
+		System.out.print("Escolha um jogo ↴"
+				+ "\n1 => Jogo da adivinhação"
+				+ "\n2 => Jogo da forca\n");
 
-		JogoAdivinhacao jogo;
-		boolean validacao;
-
-		System.out.print("Em qual nível deseja jogar? " + "\n1 => Fácil" + "\n2 => Médio" + "\n3 => Difícil");
-
-		// Selecionando o nível
 		do {
-
-			System.out.print("\n\nDigite um nível: ");
-			Integer nivel = sc.nextInt();
-
-			if (nivel > 0 && nivel < 2) {
-				jogo = new JogoAdivinhacao(10, 64);
+			System.out.print("\nDigite um número: ");
+			jogo = sc.nextInt();
+			
+			if (jogo == 1) {
+				adivinhacao.iniciarAdivinhacao();
 				validacao = true;
-
-				System.out.println(jogo.Adivinha());
-
-			} else if (nivel == 2) {
-				jogo = new JogoAdivinhacao(6, 81);
+			} else if (jogo == 2) {
+				forca.iniciarForca();
 				validacao = true;
-
-				System.out.println(jogo.Adivinha());
-
-			} else if (nivel > 2 && nivel < 4) {
-				jogo = new JogoAdivinhacao(5, 100);
-				validacao = true;
-
-				System.out.println(jogo.Adivinha());
-
 			} else {
-				System.out.println("Selecione um nível válido!!");
-				validacao = false;
+				System.out.print("Digite um jogo válido!!\n");
 			}
-		} while (validacao == false);
-
+			
+		}while (validacao == false);
+		
 		sc.close();
 	}
-
 }
