@@ -94,7 +94,7 @@ public class JogoForca {
 
 			}
 
-			System.out.println(contador + " " + tentativas);
+			System.out.println();
 
 			if (contador == palavraSelecionada.length()) {
 
